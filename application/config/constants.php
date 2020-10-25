@@ -91,4 +91,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 |
 */
 
-define('SITE_NAME', 'TokoBuku');
+define('SITE_NAME', 'TMC Indonesia');
