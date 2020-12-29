@@ -21,7 +21,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/books/add') ?>"><i class="fas fa-plus"></i> Tambah Buku</a>
+						<a href="<?php echo site_url('admin/buyer_addresses/add') ?>"><i class="fas fa-plus"></i> Tambah Alamat Pembeli</a>
 					</div>
 					<div class="card-body">
 
@@ -29,24 +29,40 @@
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>Nama</th>
-										<th>Harga</th>
+										<th>Nama Pembeli</th>
+										<th>Nama Alamat</th>
+										<th>Alamat</th>
+										<th>Kota</th>
+										<th>Provinsi</th>
+										<th>Kode Pos</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($books as $book): ?>
+									<?php foreach ($buyer_addresses as $buyer_address): ?>
 									<tr>
 										<td>
-											<?php echo $book->book_name ?>
+											<?php echo $buyer_address->user_name ?>
 										</td>
 										<td>
-											<?php echo $book->book_price ?>
+											<?php echo $buyer_address->alias ?>
+										</td>
+										<td>
+											<?php echo $buyer_address->address ?>
+										</td>
+										<td>
+											<?php echo $buyer_address->city ?>
+										</td>
+										<td>
+											<?php echo $buyer_address->province ?>
+										</td>
+										<td>
+											<?php echo $buyer_address->pos_code ?>
 										</td>
 										<td width="250">
-											<a href="<?php echo site_url('admin/books/edit/'.$book->id) ?>"
+											<a href="<?php echo site_url('admin/buyer_addresses/edit/'.$buyer_address->ba_id) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/books/delete/'.$book->id) ?>')"
+											<a onclick="deleteConfirm('<?php echo site_url('admin/buyer_addresses/delete/'.$buyer_address->ba_id) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 									</tr>

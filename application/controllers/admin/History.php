@@ -7,31 +7,35 @@ class History extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("historybook_model");
         $this->load->library('form_validation');
+        $this->load->model("history_model");
         $this->load->model("book_model");
+        $this->load->model("buyer_model");
         $this->load->model("user_model");
 		if($this->user_model->isNotLogin()) redirect(site_url('admin/login'));
     }
 
     public function index()
     {
-        $data["historys"] = $this->historybook_model->getAll();
-        $this->load->view("admin/history/list_history", $data);
+        // $data["historys"] = $this->historybook_model->getAll();
+        $data["historys"] = $this->history_model->getAll();
+        $this->load->view("admin/history/list",$data);
     }
 
     public function add()
     {
-        $book = $this->book_model;
+        $data["books"] = $this->book_model->getAll();
+        $data["buyers"] = $this->buyer_model->getAll();
+        $history = $this->history_model;
         $validation = $this->form_validation;
-        $validation->set_rules($book->rules());
+        $validation->set_rules($history->rules());
 
         if ($validation->run()) {
-            $book->save();
+            $history->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $this->load->view("admin/book/new_form");
+        $this->load->view("admin/history/new_form",$data);
     }
 
     public function edit($id = null)

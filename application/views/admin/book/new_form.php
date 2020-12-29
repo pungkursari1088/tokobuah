@@ -32,29 +32,20 @@
 
 						<form action="<?php base_url('') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
-								<label for="nama">Nama*</label>
-								<input class="form-control <?php echo form_error('name') ? 'is-invalid':'' ?>"
-								 type="text" name="nama" placeholder="Nama Buku" />
+								<label for="book_name">Nama*</label>
+								<input class="form-control <?php echo form_error('book_name') ? 'is-invalid':'' ?>"
+								 type="text" name="book_name" placeholder="Nama Buku" />
 								<div class="invalid-feedback">
-									<?php echo form_error('nama') ?>
+									<?php echo form_error('book_name') ?>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="harga">Harga*</label>
-								<input class="form-control <?php echo form_error('harga') ? 'is-invalid':'' ?>"
-								 type="number" name="harga" min="0" placeholder="Harga Buku" />
+								<label for="book_price">Harga*</label>
+								<input class="form-control <?php echo form_error('book_price') ? 'is-invalid':'' ?>"
+								 type="number" name="book_price" min="0" placeholder="0" />
 								<div class="invalid-feedback">
-									<?php echo form_error('harga') ?>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="jumlah">Jumlah Buku*</label>
-								<input class="form-control <?php echo form_error('jumlah') ? 'is-invalid':'' ?>"
-								 type="number" name="jumlah" placeholder="Jumlah Buku"></input>
-								<div class="invalid-feedback">
-									<?php echo form_error('jumlah') ?>
+									<?php echo form_error('book_price') ?>
 								</div>
 							</div>
 

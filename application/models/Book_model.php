@@ -5,25 +5,21 @@ class Book_model extends CI_Model
     private $_table = "books";
 
     public $id;
-    public $nama;
-    public $harga;
-    public $jumlah;
+    public $book_name;
+    public $book_price;
     
 
     public function rules()
     {
         return [
-            ['field' => 'nama',
-            'label' => 'Nama',
+            ['field' => 'book_name',
+            'label' => 'Book_Name',
             'rules' => 'required'],
 
-            ['field' => 'harga',
-            'label' => 'Harga',
-            'rules' => 'numeric'],
-            
-            ['field' => 'jumlah',
-            'label' => 'Jumlah',
+            ['field' => 'book_price',
+            'label' => 'Book_Price',
             'rules' => 'numeric']
+        
         ];
     }
 
@@ -40,10 +36,8 @@ class Book_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        
-        $this->nama = $post["nama"];
-		$this->harga = $post["harga"];
-        $this->jumlah = $post["jumlah"];
+        $this->book_name = $post["book_name"];
+		$this->book_price = $post["book_price"];
         $this->db->insert($this->_table, $this);
     }
 
@@ -51,9 +45,8 @@ class Book_model extends CI_Model
     {
         $post = $this->input->post();
         $this->id = $post["id"];
-        $this->nama = $post["nama"];
-		$this->harga = $post["harga"];
-        $this->jumlah = $post["jumlah"];
+        $this->book_name = $post["book_name"];
+		$this->book_price = $post["book_price"];
         $this->db->update($this->_table, $this, array('id' => $post['id']));
     }
 
@@ -62,12 +55,12 @@ class Book_model extends CI_Model
         return $this->db->delete($this->_table, array("id" => $id));
     }
     
-    public function updateOrder($data)
-    {
-        $post = $this->input->post();
-        $this->id = $post["id_buku"];
-        $this->jumlah = $data["jumlah"];
-        $this->db->update($this->_table, $this, array('id' => $post['id_buku']));
-    }
+    // public function updateOrder($data)
+    // {
+    //     $post = $this->input->post();
+    //     $this->id = $post["id_buku"];
+    //     $this->jumlah = $data["jumlah"];
+    //     $this->db->update($this->_table, $this, array('id' => $post['id_buku']));
+    // }
 
 }

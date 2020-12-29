@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
 </head>
@@ -19,7 +20,9 @@
 
 				<!-- DataTables -->
 				<div class="card mb-3">
-					
+					<div class="card-header">
+						<a href="<?php echo site_url('admin/book_comes/add') ?>"><i class="fas fa-plus"></i> Tambah Buku Masuk</a>
+					</div>
 					<div class="card-body">
 
 						<div class="table-responsive">
@@ -27,29 +30,29 @@
 								<thead>
 									<tr>
 										<th>Nama Buku</th>
-										<th>Jumlah Masuk</th>
-										<th>Jumlah Keluar</th>
-										<th>Tanggal</th>									
+										<th>Jumlah Buku Masuk</th>
+										<th>Tanggal Masuk</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($historys as $history): ?>
+									<?php foreach ($book_comes as $book_come): ?>
 									<tr>
 										<td>
-											<?php echo $history->nama_buku ?>
+											<?php echo $book_come->book_name ?>
 										</td>
 										<td>
-                                            <?php echo $history->jml_masuk ?>
+											<?php echo $book_come->book_order_in ?>
 										</td>
 										<td>
-                                            <?php echo $history->jml_keluar ?>
+											<?php echo $book_come->date_come ?>
 										</td>
-										<td>
-                                            <?php echo $history->tanggal ?>   
+										<td width="250">
+											<a href="<?php echo site_url('admin/book_comes/edit/'.$book_come->book_come_id) ?>"
+											 class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
+											<a onclick="deleteConfirm('<?php echo site_url('admin/book_comes/delete/'.$book_come->book_come_id) ?>')"
+											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
-										<td>
-											<?php echo $buyer->total ?>
-										
 									</tr>
 									<?php endforeach; ?>
 

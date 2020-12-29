@@ -39,33 +39,24 @@
 							<input type="hidden" name="id" value="<?php echo $book->id?>" />
 
 							<div class="form-group">
-								<label for="nama">Nama*</label>
-								<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-								 type="text" name="nama" placeholder="nama buku" value="<?php echo $book->nama ?>" />
+								<label for="book_name">Nama*</label>
+								<input class="form-control <?php echo form_error('book_name') ? 'is-invalid':'' ?>"
+								 type="text" name="book_name" placeholder="Nama Buku" value="<?php echo $book->book_name ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('nama') ?>
+									<?php echo form_error('book_name') ?>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="harga">Harga</label>
-								<input class="form-control <?php echo form_error('harga') ? 'is-invalid':'' ?>"
-								 type="number" name="harga" min="0" placeholder="Harga Buku" value="<?php echo $book->harga ?>" />
+								<label for="book_price">Harga</label>
+								<input class="form-control <?php echo form_error('book_price') ? 'is-invalid':'' ?>"
+								 type="number" name="book_price" min="0" placeholder="Harga Buku" value="<?php echo $book->book_price ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('harga') ?>
+									<?php echo form_error('book_price') ?>
 								</div>
 							</div>
-
-                            <div class="form-group">
-								<label for="jumlah">Jumlah</label>
-								<input class="form-control <?php echo form_error('jumlah') ? 'is-invalid':'' ?>"
-								 type="number" name="jumlah" min="0" placeholder="Jumlah Buku" value="<?php echo $book->jumlah ?>" disabled/>
-								<div class="invalid-feedback">
-									<?php echo form_error('harga') ?>
-								</div>
-							</div>
-							
-							<input class="btn btn-success" type="submit" name="btn" value="Simpan" />
+	
+							<input class="btn btn-success" type="submit" name="btn" value="Update" />
 						</form>
 
 					</div>

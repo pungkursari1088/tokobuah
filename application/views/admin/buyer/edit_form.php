@@ -24,26 +24,33 @@
 				</div>
 				<?php endif; ?>
 
+				<!-- Card  -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/buyers/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+
+						<a href="<?php echo site_url('admin/buyers/') ?>"><i class="fas fa-arrow-left"></i>
+							Kembali</a>
 					</div>
 					<div class="card-body">
 
-						<form action="<?php base_url('') ?>" method="post" enctype="multipart/form-data" >
+						<form action="<?php base_url("admin/buyers") ?>" method="post"
+							enctype="multipart/form-data" >
+
+							<input type="hidden" name="id" value="<?php echo $buyer->id?>" />
+
 							<div class="form-group">
-								<label for="book_name">Nama Pembeli*</label>
+								<label for="user_name">Nama Pembeli*</label>
 								<input class="form-control <?php echo form_error('user_name') ? 'is-invalid':'' ?>"
-								 type="text" name="user_name" placeholder="Nama Pembeli" />
+								 type="text" name="user_name" placeholder="Nama Pembeli" minlength=11 value="<?php echo $buyer->user_name ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('user_name') ?>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="book_price">Telephone*</label>
+								<label for="telephone">No Telephone</label>
 								<input class="form-control <?php echo form_error('telephone') ? 'is-invalid':'' ?>"
-								 type="tel" name="telephone" placeholder="085123456789" minlength=11/>
+								 type="tel" name="telephone" name="telephone" value="<?php echo $buyer->telephone ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('telephone') ?>
 								</div>
@@ -52,13 +59,13 @@
 							<div class="form-group">
 								<label for="email">Telephone*</label>
 								<input class="form-control <?php echo form_error('email') ? 'is-invalid':'' ?>"
-								 type="email" name="email" placeholder="contoh@gmail.com"/>
+								 type="email" name="email" value="<?php echo $buyer->email ?>"/>
 								<div class="invalid-feedback">
 									<?php echo form_error('email') ?>
 								</div>
 							</div>
-
-							<input class="btn btn-success" type="submit" name="btn" value="Save" />
+	
+							<input class="btn btn-success" type="submit" name="btn" value="Update" />
 						</form>
 
 					</div>
@@ -79,7 +86,6 @@
 
 		</div>
 		<!-- /#wrapper -->
-
 
 		<?php $this->load->view("admin/_partials/scrolltop.php") ?>
 

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
 </head>
@@ -20,33 +19,47 @@
 
 				<!-- DataTables -->
 				<div class="card mb-3">
-					<div class="card-header">
-						<a href="<?php echo site_url('admin/books/add') ?>"><i class="fas fa-plus"></i> Tambah Buku</a>
-					</div>
+					
 					<div class="card-body">
 
 						<div class="table-responsive">
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>Nama</th>
-										<th>Harga</th>
-										<th>Action</th>
+										<th>Pembeli</th>
+										<th>Alamat</th>
+										<th>Ekspedisi</th>
+										<th>Berat Paket</th>
+										<th>Buku</th>	
+										<th>Jmlh Buku</th>
+										<th>Action</th>								
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($books as $book): ?>
+									<?php foreach ($historys as $history): ?>
 									<tr>
 										<td>
-											<?php echo $book->book_name ?>
+											<?php echo $history->user_name ?>
 										</td>
 										<td>
-											<?php echo $book->book_price ?>
+                                            <?php echo $history->address ?>
+										</td>
+										<td>
+                                            <?php echo $history->expedition ?>
+										</td>
+										<td>
+                                            <?php echo $history->weight_packet ?>   
+										</td>
+										<td>
+											<?php echo $history->book_name ?>
+										</td>
+										<td>
+											<?php echo $history->book_order_out ?>
 										</td>
 										<td width="250">
-											<a href="<?php echo site_url('admin/books/edit/'.$book->id) ?>"
+											<a href="<?php echo site_url('admin/buyer_addresses/edit/'.$history->hi_id) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/books/delete/'.$book->id) ?>')"
+											<a onclick="deleteConfirm('<?php echo site_url('admin/buyer_addresses/delete/'.$history->hi_id) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 									</tr>

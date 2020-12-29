@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
 </head>
@@ -20,7 +21,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/buyers/newBuyer') ?>"><i class="fas fa-plus"></i>Add New</a>
+						<a href="<?php echo site_url('admin/buyers/add') ?>"><i class="fas fa-plus"></i> Tambah Pembeli</a>
 					</div>
 					<div class="card-body">
 
@@ -29,32 +30,26 @@
 								<thead>
 									<tr>
 										<th>Nama Pembeli</th>
-										<th>Alamat</th>
-										<th>Nama Buku</th>
-										<th>Jumlah</th>
-										<th>Total</th>
+										<th>Telephone</th>
+										<th>Email</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php foreach ($buyers as $buyer): ?>
 									<tr>
 										<td>
-											<?php echo $buyer->nama_pembeli ?>
-										</td>
-										<td class="small">
-											<?php echo substr($buyer->alamat, 0, 120) ?>...</td>
+											<?php echo $buyer->user_name ?>
 										</td>
 										<td>
-											<?php echo $buyer->nama_buku ?>
+											<?php echo $buyer->telephone ?>
 										</td>
 										<td>
-											<?php echo $buyer->jumlah_order ?>
+											<?php echo $buyer->email ?>
 										</td>
-										<td>
-											<?php echo $buyer->total ?>
-										<td>
+										<td width="250">
 											<a href="<?php echo site_url('admin/buyers/edit/'.$buyer->id) ?>"
-											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+											 class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
 											<a onclick="deleteConfirm('<?php echo site_url('admin/buyers/delete/'.$buyer->id) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>

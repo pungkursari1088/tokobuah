@@ -26,35 +26,30 @@
 
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/buyers/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+						<a href="<?php echo site_url('admin/books_come/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 					</div>
 					<div class="card-body">
 
 						<form action="<?php base_url('') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
-								<label for="book_name">Nama Pembeli*</label>
-								<input class="form-control <?php echo form_error('user_name') ? 'is-invalid':'' ?>"
-								 type="text" name="user_name" placeholder="Nama Pembeli" />
-								<div class="invalid-feedback">
-									<?php echo form_error('user_name') ?>
-								</div>
-							</div>
+                                <label>Buku*</label>
+                                <div>
+                                    <select name="id_book">
+                                        <?php
+                                        foreach ($books as $book) {
+                                            echo "<option value=" . $book->id . ">" . $book->book_name . "</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
 
 							<div class="form-group">
-								<label for="book_price">Telephone*</label>
-								<input class="form-control <?php echo form_error('telephone') ? 'is-invalid':'' ?>"
-								 type="tel" name="telephone" placeholder="085123456789" minlength=11/>
+								<label for="book_order_in">Jumlah Buku Masuk*</label>
+								<input class="form-control <?php echo form_error('book_order_in') ? 'is-invalid':'' ?>"
+								 type="number" name="book_order_in" min="0" placeholder="0" />
 								<div class="invalid-feedback">
-									<?php echo form_error('telephone') ?>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="email">Telephone*</label>
-								<input class="form-control <?php echo form_error('email') ? 'is-invalid':'' ?>"
-								 type="email" name="email" placeholder="contoh@gmail.com"/>
-								<div class="invalid-feedback">
-									<?php echo form_error('email') ?>
+									<?php echo form_error('book_order_in') ?>
 								</div>
 							</div>
 
