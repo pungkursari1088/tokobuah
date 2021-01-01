@@ -1,0 +1,83 @@
+/*//////////////////////////////////////////////////////////////////
+  [ Utiliti ]*/
+.address {
+	padding-left: 30px;
+	padding-top: 30px;
+}
+
+/*//////////////////////////////////////////////////////////////////
+  [ Table ]*/
+
+table,
+th,
+td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 100%;
+}
+.container-table100 {
+	margin-top: 15px;
+	margin-left: 30px;
+	margin-right: 15px;
+}
+
+tbody tr:nth-child(even) {
+	background: #d1cedf;
+}
+
+tbody tr:hover {
+	background: #eae9f5;
+}
+
+.table100-head th {
+	font-family: OpenSans-Regular;
+	font-size: 18px;
+	color: palegoldenrod;
+	background-color: rgb(95, 77, 77);
+	line-height: 1.2;
+}
+.column1 {
+	width: auto;
+}
+
+.column2 {
+	width: auto;
+}
+
+.column3 {
+	width: auto;
+}
+
+.column4 {
+	width: auto;
+	text-align: center;
+}
+
+.column5 {
+	width: auto;
+	text-align: center;
+}
+
+.column6 {
+	width: auto;
+	text-align: center;
+}
+.column7 {
+	width: auto;
+	text-align: center;
+}
+
+#outtable {
+	padding: 20px;
+	border: 1px solid #c7c7c7;
+	width: 600px;
+	border-radius: 5px;
+}
+
+.short {
+	width: 50px;
+}
+
+.normal {
+	width: 150px;
+}

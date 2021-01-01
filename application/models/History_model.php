@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 class History_model extends CI_Model
 {
@@ -23,68 +23,90 @@ class History_model extends CI_Model
     public function rules()
     {
         return [
-            ['field' => 'id_buyer',
-            'label' => 'Id_buyer',
-            'rules' => 'required'],
+            [
+                'field' => 'id_buyer',
+                'label' => 'Id_buyer',
+                'rules' => 'required'
+            ],
 
-            ['field' => 'id_address',
-            'label' => 'Id_address',
-            'rules' => 'required'],
+            [
+                'field' => 'id_address',
+                'label' => 'Id_address',
+                'rules' => 'required'
+            ],
 
-            ['field' => 'expedition',
-            'label' => 'Expedition',
-            'rules' => 'required'],
+            [
+                'field' => 'expedition',
+                'label' => 'Expedition',
+                'rules' => 'required'
+            ],
 
-            ['field' => 'sending_price',
-            'label' => 'Sending_price',
-            'rules' => 'numeric'],
+            [
+                'field' => 'sending_price',
+                'label' => 'Sending_price',
+                'rules' => 'numeric'
+            ],
 
-            ['field' => 'weight_price',
-            'label' => 'Weight_price',
-            'rules' => 'numeric'],
+            [
+                'field' => 'weight_price',
+                'label' => 'Weight_price',
+                'rules' => 'numeric'
+            ],
 
-            ['field' => 'date_order',
-            'label' => 'Date_order',
-            'rules' => 'date'],
+            [
+                'field' => 'date_order',
+                'label' => 'Date_order',
+                'rules' => 'date'
+            ],
 
-            ['field' => 'date_send',
-            'label' => 'Date_send',
-            'rules' => 'date'],
+            [
+                'field' => 'date_send',
+                'label' => 'Date_send',
+                'rules' => 'date'
+            ],
 
-            ['field' => 'payment_status',
-            'label' => 'Payment_status',
-            'rules' => 'required'],
+            [
+                'field' => 'payment_status',
+                'label' => 'Payment_status',
+                'rules' => 'required'
+            ],
 
-            ['field' => 'buyer_status',
-            'label' => 'Buyer_status',
-            'rules' => 'required'],
+            [
+                'field' => 'buyer_status',
+                'label' => 'Buyer_status',
+                'rules' => 'required'
+            ],
 
-            ['field' => 'id_book',
-            'label' => 'Id_book',
-            'rules' => 'numeric'],
+            [
+                'field' => 'id_book',
+                'label' => 'Id_book',
+                'rules' => 'numeric'
+            ],
 
-            ['field' => 'book_order_out',
-            'label' => 'Book_order_out',
-            'rules' => 'numeric'],
+            [
+                'field' => 'book_order_out',
+                'label' => 'Book_order_out',
+                'rules' => 'numeric'
+            ],
 
-            ['field' => 'id_group',
-            'label' => 'Id_group',
-            'rules' => 'numeric'],
+            [
+                'field' => 'id_group',
+                'label' => 'Id_group',
+                'rules' => 'numeric'
+            ],
 
-            ['field' => 'order_group',
-            'label' => 'Order_group',
-            'rules' => 'required'],
+            [
+                'field' => 'order_group',
+                'label' => 'Order_group',
+                'rules' => 'numeric'
+            ],
 
-            ['field' => 'description',
-            'label' => 'Description',
-            'rules' => 'required'],
-        
         ];
     }
 
     public function getAll()
     {
-        
+
         $this->db->select('hi.id as hi_id,
         b.user_name,
         ba.address,
@@ -93,22 +115,22 @@ class History_model extends CI_Model
         bo.book_name,
         hi.book_order_out');
         $this->db->from('history AS hi');
-        $this->db->join('buyers AS b', 'hi.id_buyer = b.id','left');
-        $this->db->join('buyer_addresses AS ba', 'hi.id_address = ba.id','left');
-        $this->db->join('books AS bo', 'hi.id_book = bo.id','left');
+        $this->db->join('buyers AS b', 'hi.id_buyer = b.id', 'left');
+        $this->db->join('buyer_addresses AS ba', 'hi.id_address = ba.id', 'left');
+        $this->db->join('books AS bo', 'hi.id_book = bo.id', 'left');
         $query = $this->db->get()->result();
         return $query;
-
     }
-    
+
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["id" => $id])->row();
     }
 
-    public function get_buyer_address($buyer_id){
-		return $this->db->get_where($this->_table, ["id_buyer" => $buyer_id])->result();
-	}
+    public function get_buyer_address($buyer_id)
+    {
+        return $this->db->get_where($this->_table, ["id_buyer" => $buyer_id])->result();
+    }
 
     public function save()
     {
@@ -148,5 +170,4 @@ class History_model extends CI_Model
     {
         return $this->db->delete($this->_table, array("id" => $id));
     }
-
 }
